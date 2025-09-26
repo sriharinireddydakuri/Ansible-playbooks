@@ -9,7 +9,8 @@
         action: yum pkg=git state=present
 
       - name: Install docker on Host Machines
-        action: yum pkg=docker state=present
+        action: yum pkg=docker state=present 
+        ignore_errors: yes
         
       - name: Start Docker Server on Host Machines
         action: service name=docker state=started
