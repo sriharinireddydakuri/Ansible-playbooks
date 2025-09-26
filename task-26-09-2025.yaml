@@ -9,7 +9,7 @@
       action: yum pkg=python3 state=present
 
     - name: Install java package
-      action: yum pkg=java-21-amazon-coretto-devian state=present
+      action: yum pkg=java-21-amazon-corretto-devel state=present
       ignore_errors: yes
     
     - name: Install webserver package 
