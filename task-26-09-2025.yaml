@@ -1,0 +1,34 @@
+---
+- hosts: webservers
+  user: ansible
+  become: true
+  connection: ssh
+  tasks:
+    
+    - name: Install python package
+      action: yum pkg=python3 state=present
+
+    - name: Install java package
+      action: yum pkg=java-21-amazon-coretto-devian state=present
+      ignore_errors: yes
+    
+    - name: Install webserver package 
+      action: yum pkg=httpd state=present
+
+    - name: Start httpd Server on all hosts
+      action: service name=httpd state=started
+
+    - name: Stop httpd Server on all hosts
+      action: service name=httpd state=stopped
+
+    - name: restart httpd Server on all hosts
+      action: service name=httpd state=restarted
+
+    - name: install mysql package
+      action: yum pkg=mariadb105 state=present
+      ignore_errors: yes
+
+
+
+
+    
